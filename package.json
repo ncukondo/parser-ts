@@ -23,9 +23,13 @@
     "type": "git",
     "url": "https://github.com/ncukondo/parser-ts"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "typescript",
-    "Jest"
+    "Jest",
+    "parser"
   ],
   "author": "ncukondo",
   "license": "MIT",
