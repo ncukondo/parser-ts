@@ -1,0 +1,62 @@
+{
+  "name": "@ncukondo/parser-ts",
+  "version": "0.1.4",
+  "description": "",
+  "main": "./built/index.js",
+  "types": "./built/index.d.js",
+  "scripts": {
+    "preinstall": "ln -s ../node_modules node_modules",
+    "lint": "tslint --fix src/**/*.ts",
+    "test": "yarn jest -i",
+    "copy-to-dist": "cpx src/*.html dist",
+    "watch": "yarn build-dev && webpack --watch --config webpack.dev.config.js",
+    "start": "webpack-dev-server --config webpack.dev.config.js",
+    "clean": "rimraf built",
+    "clean-dist": "rimraf dist",
+    "build-dev": "yarn clean-dist &&  yarn copy-to-dist && webpack --config webpack.dev.config.js",
+    "build": "yarn clean && yarn tsc -p ./tsconfig.module.json",
+    "git": "git add . && git commit -m",
+    "postgit": "git push origin master",
+    "prepublish": "yarn test && yarn build"
+  },
+  "keywords": [
+    "typescript",
+    "Jest"
+  ],
+  "author": "ncukondo",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^23.3.10",
+    "@types/node": "^10.12.18",
+    "cpx": "^1.5.0",
+    "jest": "^23.6.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.15.3",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^23.10.5",
+    "ts-loader": "^5.3.1",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.2.2",
+    "wait-on": "^3.2.0",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.14",
+    "webpack-merge": "^4.1.5"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(src/.+(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}
