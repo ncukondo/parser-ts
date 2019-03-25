@@ -19,6 +19,10 @@
     "postgit": "git push origin master",
     "prepublish": "yarn test && yarn build"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ncukondo/parser-ts"
+  },
   "keywords": [
     "typescript",
     "Jest"
